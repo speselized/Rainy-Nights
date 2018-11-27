@@ -18,7 +18,6 @@ from discord.ext import commands
 from discord.utils import get
 
 
-TOKEN = 'NDkwNDQ3NTUzMjIyMTQ4MDk3.Dn6o0g.I87hdy0DJps4vOcFuo34GmFNTt0'
 client = commands.Bot(command_prefix = '?')
 
 extensions = ['fun', 'moderations', 'music']
@@ -104,4 +103,4 @@ async def iconify(ctx, *args):
     print('iconify: ' + iconstring)
 
 
-client.run(os.environ["TOKEN"])
+client.run(TOKEN)
