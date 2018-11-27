@@ -45,7 +45,7 @@ class Moderations:
 
 
     @commands.command(pass_context=True)
-    @commands.has_role('Staff')
+    @commands.has_role('ROLEYOUWANTPEOPLETOUSETHISROLE')
     async def permit(self, ctx, user: discord.Member):
         """Gives the user you provided in the string the permissions to add links / images or media. (STAFF ONLY)""" 
         role = discord.utils.get(user.server.roles, name="Image Perms")
@@ -56,7 +56,7 @@ class Moderations:
 
 
     @commands.command(pass_context=True)
-    @commands.has_role('Staff')
+    @commands.has_role('ROLEYOUWANTPEOPLETOUSETHISROLE')
     async def approve(self, ctx, user: discord.Member):
         """Gives the user you provided in the string the permissions to add links / images or media. (STAFF ONLY)""" 
         role = discord.utils.get(user.server.roles, name="Image Perms")
@@ -66,7 +66,7 @@ class Moderations:
         await self.client.say(embed=embed)
 
     @commands.command(pass_context=True)
-    @commands.has_role('Staff')
+    @commands.has_role('ROLEYOUWANTPEOPLETOUSETHISROLE')
     async def perm(self, ctx, user: discord.Member):
         """Gives the user you provided in the string the permissions to add links / images or media. (STAFF ONLY)""" 
         role = discord.utils.get(user.server.roles, name="Image Perms")
@@ -77,7 +77,7 @@ class Moderations:
         
         
     @commands.command(name="whois", pass_context=True)
-    @commands.has_role('Staff')
+    @commands.has_role('ROLEYOUWANTPEOPLETOUSETHISROLE')
     async def user_info(self, ctx, user: discord.Member = None):
         """Gets information about the desired user (defaults to the message sender) (STAFF ONLY)"""
         if user is None:
@@ -104,7 +104,7 @@ class Moderations:
                                "```".format(user, ", ".join([x.name for x in user.roles if x.name != "@everyone"])))
 
     @commands.command(name="serverinfo", pass_context=True)
-    @commands.has_role('Staff')
+    @commands.has_role('ROLEYOUWANTPEOPLETOUSETHISROLE')
     async def server_info(self, ctx):
         """Gets information about the current server"""
         await self.client.say("```xl\n"
@@ -120,7 +120,7 @@ class Moderations:
 
 
     @commands.command(pass_context=True)
-    @commands.has_role('Staff')
+    @commands.has_role('ROLEYOUWANTPEOPLETOUSETHISROLE')
     @commands.has_permissions(ban_members=True)
 
 
@@ -161,7 +161,7 @@ class Moderations:
         await self.client.say('https://encrypted.google.com/search?hl=en&q={}'.format(" ".join(args).replace(' ', '+')))
 
     @commands.command(pass_context = True)
-    @commands.has_role('Staff')
+    @commands.has_role('ROLEYOUWANTPEOPLETOUSETHISROLE')
     async def dm(self, ctx, member: discord.Member,*, message = ""):
         """Direct messages the user you pinged. (STAFF ONLY)"""
         
@@ -171,7 +171,7 @@ class Moderations:
 
 
     @commands.command(pass_context = True)
-    @commands.has_role('Staff')
+    @commands.has_role('ROLEYOUWANTPEOPLETOUSETHISROLE')
     async def message(self, ctx, member: discord.Member,*, message = ""):
         """The bot direct messages the user you provided in the string. (STAFF ONLY)"""
         await self.client.send_message(member, '{}'.format(message))
@@ -190,7 +190,7 @@ class Moderations:
 
 
     @commands.command(pass_context = True)
-    @commands.has_role('Staff')
+    @commands.has_role('ROLEYOUWANTPEOPLETOUSETHISROLE')
     async def id(self, ctx, user: discord.Member):
         """Gets their id. (STAFF ONLY)"""
         embed = discord.Embed(name="Users ID!", description=" ", color=0xff00f6)
@@ -202,7 +202,7 @@ class Moderations:
 
     @commands.command(pass_context=True)
     @commands.has_permissions(ban_members=True)
-    @commands.has_role('Staff')
+    @commands.has_role('ROLEYOUWANTPEOPLETOUSETHISROLE')
     async def ban(self, ctx, user: discord.Member, reason):
         """BAN THE NAUGHTY KIDS. (STAFF ONLY)"""
         msg = ctx.message.content.split(" ")
@@ -225,7 +225,7 @@ class Moderations:
 
     @commands.command(pass_context = True)
     @commands.has_permissions(ban_members=True)
-    @commands.has_role('Staff')
+    @commands.has_role('ROLEYOUWANTPEOPLETOUSETHISROLE')
     async def unban(self, ctx, user_id, reason):
         """Unbans the nice and beautiful kids. (STAFF ONLY)"""
         banned = await self.client.get_user_info(user_id)
@@ -245,7 +245,7 @@ class Moderations:
 
 
     @commands.command(pass_context=True)
-    @commands.has_role('Staff')
+    @commands.has_role('ROLEYOUWANTPEOPLETOUSETHISROLE')
     async def kick(self, ctx, user:discord.Member, reason):
         """Kicks someone from the server (STAFF ONLY)"""
         msg = ctx.message.content.split(" ")
@@ -267,15 +267,15 @@ class Moderations:
 
         
     @commands.command(pass_context=True)
-    @commands.has_role('Staff')
+    @commands.has_role('ROLEYOUWANTPEOPLETOUSETHISROLE')
     async def warn(self, ctx, user: discord.User, reason):
         """Warns the user. (STAFF ONLY)"""
         msg = ctx.message.content.split(" ")
         msg2 = " ".join(msg[2:])
         await self.client.send_message(user, f"You have been warned in **{ctx.message.server.name}** by **{ctx.message.author.name}**. Reason: **{msg2}**")
         await self.client.say(f"{user.name} has been warned Reason: {msg2}")
-        if ctx.message.server.id == "511148640710950933":
-            channel = self.client.get_channel("511832933829443594")
+        if ctx.message.server.id == "Server ID":
+            channel = self.client.get_channel("Log channel ID")
             embed = discord.Embed(title="Warn", color=discord.Color.red())
             embed.add_field(name="User", value=user.mention)
             embed.add_field(name="Moderator", value=ctx.message.author.mention)
@@ -293,10 +293,10 @@ class Moderations:
                     
                     
     @commands.command(pass_context=True)
-    @commands.has_role('Staff')
+    @commands.has_role('ROLEYOUWANTPEOPLETOUSETHISROLE')
     async def mute(self, ctx, member:discord.Member, time:TimeConverter = None, *, reason:str):
         """Mutes the user. Requires time and reason! (STAFF ONLY)"""
-        if ctx.message.server.id == "511148640710950933":
+        if ctx.message.server.id == "Server ID":
             role = discord.utils.get(ctx.message.server.roles, name="Muted")
             await self.client.add_roles(member, role)
             await self.client.say(f"{user.name} has been Muted Reason: {reason} For {time}s")
@@ -308,7 +308,7 @@ class Moderations:
             bembed.add_field(name="Lasts for:", value=str(time), inline=False)
             bembed.set_footer(text=self.client.user.name, icon_url=self.client.user.avatar_url)
             bembed.set_thumbnail(url=user.avatar_url)
-            bchannel = discord.Object('511832933829443594')
+            bchannel = discord.Object('Log Channel ID')
             await self.client.send_message(bchannel, embed=bembed)
             if time:
                 await asyncio.sleep(time)
@@ -318,33 +318,33 @@ class Moderations:
 
 
     @commands.command(pass_context=True)
-    @commands.has_role('Staff')
+    @commands.has_role('ROLEYOUWANTPEOPLETOUSETHISROLE')
     async def unmute(self, ctx, user: discord.User, reason):
         """Unmutes the naughty bad child. (STAFF ONLY)"""
-        if ctx.message.server.id == "511148640710950933":
+        if ctx.message.server.id == "Server ID":
             msg = ctx.message.content.split(" ")
             msg2 = " ".join(msg[2:])
             await self.client.send_message(user, f"You have been unmuted in **{ctx.message.server.name}** by **{ctx.message.author.name}**. Reason: **{msg2}**")
             await self.client.say(f"{user.name} has been unmuted Reason: {msg2}")
-            channel = self.client.get_channel("502068770039136257")
+            channel = self.client.get_channel("Log Channel ID")
             embed = discord.Embed(title="Unmute", color=discord.Color.red())
             embed.add_field(name="User", value=user.mention)
             embed.add_field(name="Moderator", value=ctx.message.author.mention)
             embed.add_field(name="Reason", value=reason)
             embed.set_footer(text=self.client.user.name, icon_url=self.client.user.avatar_url)
             embed.set_thumbnail(url=user.avatar_url)
-            role = discord.utils.get(ctx.message.server.roles, id="511801831064731648")
+            role = discord.utils.get(ctx.message.server.roles, id="Muted Role ID")
             await self.client.remove_roles(user, role)
             overwrite = discord.PermissionOverwrite()
             overwrite.speak = False
             overwrite.send_messages = False
             for channel in ctx.message.server.channels:
                 await self.client.edit_channel_permissions(channel, role, overwrite)
-            channel = self.client.get_channel("511832933829443594")
+            channel = self.client.get_channel("Log Channel ID")
             await self.client.send_message(channel, embed=embed)
 
     @commands.command(pass_context=True)
-    @commands.has_role('Staff')
+    @commands.has_role('ROLEYOUWANTPEOPLETOUSETHISROLE')
     async def say(self, ctx, *, message):
         """Makes the bot say something magical (STAFF ONLY)"""
         if '@everyone' in message: # Checking to make sure the user isn't trying to ping everyone or here
@@ -363,7 +363,7 @@ class Moderations:
             
             
     @commands.command(pass_context=True)
-    @commands.has_role('Staff')
+    @commands.has_role('ROLEYOUWANTPEOPLETOUSETHISROLE')
     async def echo(self, ctx, *, message):
         """Makes the bot say something magical (STAFF ONLY)"""
         if '@everyone' in message: # Checking to make sure the user isn't trying to ping everyone or here
